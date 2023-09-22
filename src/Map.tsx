@@ -24,17 +24,22 @@ const Map = () => {
     setMap(map)
     }, [])
 
-    // const onClickZoomInMap = () =>{
-    //     _map?.setLevel(_map.getLevel() - 1);
-    // }
+    const onClickZoomInMap = () =>{
+        _map?.setLevel(_map.getLevel() - 1);
+    }
   
-    // const onClickZoomOutMap = () =>{
-    //     _map?.setLevel(_map.getLevel() + 1);
-    // }
+    const onClickZoomOutMap = () =>{
+        _map?.setLevel(_map.getLevel() + 1);
+    }
 
 
   return (
     <Continer id="map">
+        <BtnContiner>
+        <button onClick={onClickZoomInMap}><p>+</p></button>
+        <button onClick={onClickZoomOutMap}><p>-</p></button>
+    
+      </BtnContiner>
     </Continer>
   )
 }
@@ -47,3 +52,29 @@ const Continer = styled.div`
     position: relative;
 `;
 
+const BtnContiner= styled.div`
+    position: absolute;
+    width: 6.25rem;
+    height: 3.125rem;
+    left: .3125rem;
+    bottom: 1.5625rem;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 5px;
+    > button {
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        outline: none;
+        border-radius: 2rem;
+        border: 1px solid #878787;
+        opacity: 0.7;
+        > p {
+            font-size: 1.25rem;
+        }
+    }
+`;
