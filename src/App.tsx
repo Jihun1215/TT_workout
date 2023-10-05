@@ -6,6 +6,8 @@ import { GlobalStyle } from './styles/Globalstyle';
 import { Theme } from './styles/theme';
 import Reset from './styles/Reset';
 
+import useWeather from './hooks/useWeather'
+
 import Map from './Map';
 import axios from 'axios';
 
@@ -17,7 +19,9 @@ declare global {
 }
 
 const App = () => {
+  const { weather } = useWeather();
 
+  console.log(weather)
   const theme = {...Theme}
   
   return (
