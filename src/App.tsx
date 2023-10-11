@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyle } from './styles/Globalstyle';
-import { Theme } from './styles/theme';
-import Reset from './styles/Reset';
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./styles/Globalstyle";
+import { Theme } from "./styles/theme";
+import Reset from "./styles/Reset";
 
+import useWeather from "./hooks/useWeather";
 
-import useWeather from './hooks/useWeather'
-
-import Layout from './shared/Layout/Layout';
-
-import Map from './Map';
-import axios from 'axios';
-
+import Layout from "./shared/Layout/Layout";
 
 declare global {
   interface Window {
@@ -24,18 +19,15 @@ declare global {
 const App = () => {
   const { weather } = useWeather();
 
-  console.log(weather)
-  const theme = {...Theme}
-  
+  const theme = { ...Theme };
+
   return (
     <ThemeProvider theme={theme}>
       <Reset />
       <GlobalStyle />
-      <Layout/>
+      <Layout />
     </ThemeProvider>
+  );
+};
 
-  )
-}
-
-export default App
-
+export default App;
